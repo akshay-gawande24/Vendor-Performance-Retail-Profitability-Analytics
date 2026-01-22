@@ -2,12 +2,7 @@
 
 ## Overview
 
-This project analyzes vendor performance, **retail profitability, and inventory efficiency to generate actionable insights for purchasing, pricing, and stock optimization in a retail environment.
-
-A complete data analytics pipeline was built using:
-- SQL for ETL
-- Python for EDA and hypothesis testing
-- Power BI for interactive visualization
+This project evaluates vendor performance and retail inventory dynamics to drive strategic insights for purchasing, pricing, and inventory optimization. A complete data pipeline was built using SQL for ETL, Python for analysis and hypothesis testing, and Power BI for visualization.
 
 ---
 
@@ -39,13 +34,9 @@ Retail businesses often struggle to:
 
 ## Dataset
 
-Data sourced from multiple CSV files stored in the `/data/` folder:
-
-- Sales data
-- Vendor data
-- Inventory data
-
-These were integrated into a summary analytical table for further analysis.
+- Multiple CSV files located in /data/ folder (sales, vendors, inventory)
+- Summary table created from ingested data and used for analysis
+- These were integrated into a summary analytical table for further analysis.
 
 ---
 
