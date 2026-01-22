@@ -1,63 +1,134 @@
-Vendor Performance & Retail Profitability Analytics
+# Vendor Performance & Retail Profitability Analytics
 
-Overview
-This project evaluates vendor performance and retail inventory dynamics to drive strategic insights for purchasing, pricing, and inventory optimization. A complete data pipeline was built using SQL for ETL, Python for analysis and hypothesis testing, and Power BI for visualization.
+## Overview
 
-Business Problem
-Effective inventory and sales management are critical in the retail sector. This project aims to:
+This project analyzes **vendor performance**, **retail profitability**, and **inventory efficiency** to generate actionable insights for purchasing, pricing, and stock optimization in a retail environment.
 
-- Identify underperforming brands needing pricing or promotional adjustments
-- Determine vendor contributions to sales and profits
-- Analyze the cost-benefit of bulk purchasing
-- Investigate inventory turnover inefficiencies
-- Statistically validate differences in vendor profitability
+A complete **data analytics pipeline** was built using SQL for ETL, Python for analysis and hypothesis testing, and Power BI for interactive visualization.
 
-Dataset
-- Multiple CSV files located in /data/ folder (sales, vendors, inventory)
-- Summary table created from ingested data and used for analysis.
+---
 
-Tools & Technologies
-- SQL (Common Table Expressions, Joins, Filtering)
-- Python (Pandas, Matplotlib, Seaborn, SciPy)
-- Power BI (Interactive Visualizations)
-- GitHub
+## Business Problem
 
-Data Cleaning & Preparation
-Removed transactions with:
-   - Gross Profit ≤ 0
-   - Profit Margin ≤ 0
-   - Sales Quantity = 0
-   - Created summary tables with vendor-level metrics
-   - Converted data types, handled outliers, merged lookup tables
+Retail businesses often struggle to:
 
-Exploratory Data Analysis (EDA)
-   - Negative or Zero Values Detected:
-   - Gross Profit: Min -52,002.78 (loss-making sales)
-   - Profit Margin: Min -∞ (sales at zero or below cost)
-   - Unsold Inventory: Indicating slow-moving stock
+- Identify underperforming brands that need pricing or promotional adjustments
+- Understand which vendors truly contribute to profits
+- Decide whether bulk purchasing reduces cost effectively
+- Detect inventory turnover inefficiencies and dead stock
+- Validate vendor profitability differences using statistical evidence
 
-Outliers Identified:
-  - High Freight Costs (up to 257K)
-  - Large Purchase/Actual Prices
+This project addresses these challenges using data-driven analysis.
 
-Correlation Analysis:
-  - Weak between Purchase Price & Profit
-  - Strong between Purchase Qty & Sales Qty (0.999)
-  - Negative between Profit Margin & Sales Price (-0.179)
+---
 
-Research Questions & Key Findings
- 1. Brands for Promotions: 198 brands with low sales but high profit margins
- 2. Top Vendors: Top 10 vendors = 65.69% of purchases → risk of over-reliance
- 3. Bulk Purchasing Impact: 72% cost savings per unit in large orders
- 4. Inventory Turnover: $2.71M worth of unsold inventory
- 5. Vendor Profitability:
-    - High Vendors: Mean Margin = 31.17%
-    - Low Vendors: Mean Margin = 41.55%
- 6. Hypothesis Testing: Statistically significant difference in profit margins → distinct vendor strategies
+## Dataset
 
-Dashboard
-- Power BI Dashboard shows:
-   - Vendor-wise Sales and Margins
-   - Inventory Turnover
-   - Bulk Purchase Savings
-   - Performance Heatmaps
+Multiple CSV files located in the `/data/` folder:
+
+- Sales data
+- Vendor data
+- Inventory data
+
+These were integrated into a **summary analytical table** for further analysis.
+
+---
+
+## Tools & Technologies
+
+| Tool | Purpose |
+|------|---------|
+| SQL | ETL, joins, CTEs, summary tables |
+| Python (Pandas, Matplotlib, Seaborn, SciPy) | EDA, visualization, hypothesis testing |
+| Power BI | Interactive dashboards |
+| GitHub | Version control and documentation |
+
+---
+
+## Data Cleaning & Preparation
+
+- Removed transactions where:
+  - Gross Profit ≤ 0
+  - Profit Margin ≤ 0
+  - Sales Quantity = 0
+- Corrected data types and handled outliers
+- Merged lookup tables
+- Created vendor-level summary metrics
+
+---
+
+## Exploratory Data Analysis (EDA)
+
+### Data Issues Identified
+
+| Issue | Observation | Business Impact |
+|------|-------------|-----------------|
+| Negative Gross Profit | Min: -52,002.78 | Loss-making transactions |
+| Infinite Profit Margins | Invalid cost values | Data inconsistency |
+| Unsold Inventory | High stock value | Slow-moving items |
+
+### Outliers
+
+- Freight costs up to **257,000**
+- Extremely high purchase and actual prices
+
+### Correlation Insights
+
+| Variables | Correlation | Insight |
+|-----------|-------------|--------|
+| Purchase Qty vs Sales Qty | **0.999** | Overstocking pattern |
+| Purchase Price vs Profit | Weak | Price alone doesn’t drive profit |
+| Sales Price vs Profit Margin | -0.179 | Higher price ≠ higher margin |
+
+---
+
+## Research Questions & Key Findings
+
+### Brands Needing Promotion
+- **198 brands** with low sales but high profit margins
+- Ideal for marketing and promotional focus
+
+### Vendor Dependency Risk
+- Top 10 vendors contribute **65.69%** of total purchases
+- Indicates over-reliance risk
+
+### Bulk Purchasing Benefit
+- **72% reduction** in per-unit cost in large orders
+
+### Inventory Turnover Issue
+- **$2.71M** worth of unsold inventory detected
+
+### Vendor Profitability Comparison
+
+| Vendor Category | Mean Profit Margin |
+|------------------|-------------------|
+| High-performing Vendors | 31.17% |
+| Low-performing Vendors | 41.55% |
+
+Lower-volume vendors had higher margins.
+
+### Hypothesis Testing
+
+Statistical testing confirmed a **significant difference** in profit margins between vendor groups, indicating different pricing and supply strategies.
+
+---
+
+## Power BI Dashboard
+
+The dashboard visualizes:
+
+- Vendor-wise sales and margins
+- Inventory turnover
+- Bulk purchase savings
+- Performance heatmaps
+- KPI-driven insights
+
+---
+
+## Project Workflow
+
+1. Data ingestion from CSV files  
+2. SQL-based ETL and summary table creation  
+3. Python-based EDA and statistical testing  
+4. Visualization in Power BI  
+5. Documentation in GitHub  
